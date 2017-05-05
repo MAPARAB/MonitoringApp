@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <base href="." />
+    <title>Angular 2 Monitoring App</title>
+  </head>
+  <body>
+   <h2>Monitoring App</h2>
+     
+
+     Frequency : 
+    <select type="string" [(ngModel)]="param" (ngModelChange)="changeInSelect()">
+        <option *ngFor="let master of masterData" value= {{master.name}}>
+          {{master.id}}
+        </option>
+    </select>
+
+    <br>
+
+
+    {{_monitorModel.hits.total}}
+
+    <br>
+
+    {{_monitorModel.aggregations.words.doc_count_error_upper_bound}}
+
+    <br><br><br><br>
+
+    {{ _monitorModel.aggregations.words.buckets[0] | json}} <br>
+    {{ _monitorModel.aggregations.words.buckets[1] | json}} <br>
+    {{ _monitorModel.aggregations.words.buckets[2] | json}} <br>
+    {{ _monitorModel.aggregations.words.buckets[3] | json}}
+
+
+  </body>
+</html>
+
